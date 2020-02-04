@@ -20,6 +20,7 @@ class FizzBuzz
         $this->checkIfNumberIsAnInteger($number);
 
         if ($this->isDivisibleByFizzNumber($number)) {
+            $this->database->initConnection();
             $result = $this->database->getStringWhenThreeNumber();
         }
 
