@@ -19,7 +19,7 @@ class FizzBuzz
         $result = $number;
         $this->checkIfNumberIsAnInteger($number);
 
-        if ($number % 3 == 0) {
+        if ($this->isDivisibleByFizzNumber($number)) {
             $result = $this->database->getStringWhenThreeNumber();
         }
 
@@ -35,5 +35,14 @@ class FizzBuzz
         if ( ! is_int($number)) {
             throw new \Exception('$number is not an integer');
         }
+    }
+
+    /**
+     * @param $number
+     * @return bool
+     */
+    protected function isDivisibleByFizzNumber($number): bool
+    {
+        return $number % 3 == 0;
     }
 }
