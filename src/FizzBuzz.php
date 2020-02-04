@@ -8,6 +8,6 @@ class FizzBuzz
 {
     public function print($number)
     {
-        return 1;
+        return $number;
     }
 }
