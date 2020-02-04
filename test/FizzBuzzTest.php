@@ -6,11 +6,17 @@ use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
 {
+    public $fizzBuzz;
+
+    public function setUp()
+    {
+        $this->fizzBuzz = new FizzBuzz();
+    }
+
     /** @test */
     public function
     give_one_return_one()
     {
-        $fizzBuzz = new FizzBuzz();
-        $this->assertEquals('1', $fizzBuzz->print(1));
+        $this->assertEquals('1', $this->fizzBuzz->print(1));
     }
 }
