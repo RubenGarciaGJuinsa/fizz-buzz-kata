@@ -10,7 +10,7 @@ class FizzBuzzTest extends TestCase
 
     public function setUp()
     {
-        $this->fizzBuzz = new FizzBuzz();
+        $this->fizzBuzz = new FizzBuzz(new DatabaseFake());
     }
 
     /** @test */
@@ -27,5 +27,13 @@ class FizzBuzzTest extends TestCase
         $this->expectExceptionMessage('$number is not an integer');
         $this->fizzBuzz->print('one');
         $this->fail('Not thrown exception');
+    }
+
+
+    /** @test */
+    public function
+    give_three_return_fizz()
+    {
+        $this->assertEquals('Fizz', $this->fizzBuzz->print(3));
     }
 }
