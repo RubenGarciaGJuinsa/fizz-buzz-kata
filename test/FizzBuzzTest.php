@@ -40,4 +40,18 @@ class FizzBuzzTest extends TestCase
     {
         $this->assertEquals('Fizz', $this->fizzBuzz->print(3));
     }
+
+    /** @test */
+    public function
+    give_three_should_call_initContent()
+    {
+        $dbProphecy = $this->prophesize(Database::class);
+        $fizzBuzz = new FizzBuzz($dbProphecy->reveal());
+
+        $dbProphecy->getStringWhenThreeNumber()->willReturn('Fizz');
+        $dbProphecy->initConnection()->shouldBeCalled();
+
+
+        $this->assertEquals('Fizz', $fizzBuzz->print(3));
+    }
 }
