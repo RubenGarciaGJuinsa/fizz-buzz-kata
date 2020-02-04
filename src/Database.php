@@ -4,7 +4,7 @@
 namespace Kata;
 
 
-class Database
+class Database implements DatabaseInterface
 {
     public function getStringWhenThreeNumber()
     {

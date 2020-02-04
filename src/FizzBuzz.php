@@ -6,7 +6,7 @@ namespace Kata;
 
 class FizzBuzz
 {
-    protected $database;
+    protected DatabaseInterface $database;
 
     public function __construct($database)
     {
@@ -16,9 +16,14 @@ class FizzBuzz
 
     public function print($number)
     {
+        $result = $number;
         $this->checkIfNumberIsAnInteger($number);
 
-        return $number;
+        if ($number % 3 == 0) {
+            $result = $this->database->getStringWhenThreeNumber();
+        }
+
+        return $result;
     }
 
     /**

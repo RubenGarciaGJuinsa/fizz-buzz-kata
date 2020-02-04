@@ -4,7 +4,9 @@
 namespace Test;
 
 
-class DatabaseFake
+use Kata\DatabaseInterface;
+
+class DatabaseFake implements DatabaseInterface
 {
     public function initConnection()
     {
@@ -13,6 +15,6 @@ class DatabaseFake
 
     public function getStringWhenThreeNumber()
     {
-
+        return 'Fizz';
     }
 }
