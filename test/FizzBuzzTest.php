@@ -1,6 +1,7 @@
 <?php
 namespace Test;
 
+use Kata\Database;
 use Kata\FizzBuzz;
 use PHPUnit\Framework\TestCase;
 
@@ -8,9 +9,12 @@ class FizzBuzzTest extends TestCase
 {
     public $fizzBuzz;
 
-    public function setUp()
+    public function setUp(): void
     {
-        $this->fizzBuzz = new FizzBuzz(new DatabaseFake());
+        $dbStub = $this->createStub(Database::class);
+        $dbStub->method('getStringWhenThreeNumber')
+            ->willReturn('Fizz');
+        $this->fizzBuzz = new FizzBuzz($dbStub);
     }
 
     /** @test */
