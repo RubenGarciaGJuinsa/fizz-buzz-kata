@@ -15,4 +15,9 @@ class Database implements DatabaseInterface
     {
         throw new \PDOException();
     }
+
+    public function getStringWhenFiveNumber()
+    {
+        throw new \PDOException();
+    }
 }

@@ -14,6 +14,8 @@ class FizzBuzzTest extends TestCase
         $dbStub = $this->createStub(Database::class);
         $dbStub->method('getStringWhenThreeNumber')
             ->willReturn('Fizz');
+        $dbStub->method('getStringWhenFiveNumber')
+            ->willReturn('Buzz');
         $this->fizzBuzz = new FizzBuzz($dbStub);
     }
 
@@ -57,7 +59,7 @@ class FizzBuzzTest extends TestCase
 
     /** @test */
     public function
-    give_three_return_buzz()
+    give_five_return_buzz()
     {
         $this->assertEquals('Buzz', $this->fizzBuzz->print(5));
     }

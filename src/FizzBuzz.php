@@ -24,6 +24,11 @@ class FizzBuzz
             $result = $this->database->getStringWhenThreeNumber();
         }
 
+        if ($number % 5 == 0) {
+            $this->database->initConnection();
+            $result = $this->database->getStringWhenFiveNumber();
+        }
+
         return $result;
     }
 
