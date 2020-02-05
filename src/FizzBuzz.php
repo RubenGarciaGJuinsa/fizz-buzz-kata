@@ -6,6 +6,8 @@ namespace Kata;
 
 class FizzBuzz
 {
+    const BUZZ_NUMBER = 5;
+    const FIZZ_NUMBER = 3;
     protected DatabaseInterface $database;
 
     public function __construct($database)
@@ -24,7 +26,7 @@ class FizzBuzz
             $result = $this->database->getStringWhenThreeNumber();
         }
 
-        if ($number % 5 == 0) {
+        if ($this->isDivisibleByBuzzNumber($number)) {
             $this->database->initConnection();
             $result = $this->database->getStringWhenFiveNumber();
         }
@@ -49,6 +51,15 @@ class FizzBuzz
      */
     protected function isDivisibleByFizzNumber($number): bool
     {
-        return $number % 3 == 0;
+        return $number % self::FIZZ_NUMBER == 0;
+    }
+
+    /**
+     * @param $number
+     * @return bool
+     */
+    protected function isDivisibleByBuzzNumber($number): bool
+    {
+        return $number % self::BUZZ_NUMBER == 0;
     }
 }
