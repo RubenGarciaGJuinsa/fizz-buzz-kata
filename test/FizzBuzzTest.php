@@ -54,4 +54,11 @@ class FizzBuzzTest extends TestCase
 
         $this->assertEquals('Fizz', $fizzBuzz->print(3));
     }
+
+    /** @test */
+    public function
+    give_three_return_buzz()
+    {
+        $this->assertEquals('Buzz', $this->fizzBuzz->print(5));
+    }
 }
