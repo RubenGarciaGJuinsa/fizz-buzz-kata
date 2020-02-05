@@ -18,17 +18,21 @@ class FizzBuzz
 
     public function print($number)
     {
-        $result = $number;
+        $result = '';
         $this->checkIfNumberIsAnInteger($number);
 
         if ($this->isDivisibleByFizzNumber($number)) {
             $this->database->initConnection();
-            $result = $this->database->getStringWhenThreeNumber();
+            $result .= $this->database->getStringWhenThreeNumber();
         }
 
         if ($this->isDivisibleByBuzzNumber($number)) {
             $this->database->initConnection();
-            $result = $this->database->getStringWhenFiveNumber();
+            $result .= $this->database->getStringWhenFiveNumber();
+        }
+
+        if (empty($result)) {
+            $result = $number;
         }
 
         return $result;
