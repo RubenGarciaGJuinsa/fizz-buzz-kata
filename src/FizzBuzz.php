@@ -21,12 +21,12 @@ class FizzBuzz
         $result = '';
         $this->checkIfNumberIsAnInteger($number);
 
-        if ($this->isDivisibleByFizzNumber($number)) {
+        if ($this->isDisisibleByNumber($number, self::FIZZ_NUMBER)) {
             $this->database->initConnection();
             $result .= $this->database->getStringWhenThreeNumber();
         }
 
-        if ($this->isDivisibleByBuzzNumber($number)) {
+        if ($this->isDisisibleByNumber($number, self::BUZZ_NUMBER)) {
             $this->database->initConnection();
             $result .= $this->database->getStringWhenFiveNumber();
         }
@@ -49,21 +49,8 @@ class FizzBuzz
         }
     }
 
-    /**
-     * @param $number
-     * @return bool
-     */
-    protected function isDivisibleByFizzNumber($number): bool
+    protected function isDisisibleByNumber($number, $divider)
     {
-        return $number % self::FIZZ_NUMBER == 0;
-    }
-
-    /**
-     * @param $number
-     * @return bool
-     */
-    protected function isDivisibleByBuzzNumber($number): bool
-    {
-        return $number % self::BUZZ_NUMBER == 0;
+        return $number % $divider == 0;
     }
 }
